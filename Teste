@@ -1,0 +1,38 @@
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+if RunService:IsServer() then
+local Remote = Instance.new("RemoteEvent")
+Remote.Name = "AntiSpyKick"
+Remote.Parent = ReplicatedStorage
+Remote.OnServerEvent:Connect(function(player)
+player:Kick("ولي منا")
+end)
+else
+local CoreGui = game:GetService("CoreGui")
+local player = Players.LocalPlayer
+local Remote = ReplicatedStorage:WaitForChild("AntiSpyKick")
+local keywords = {
+"spy",
+"remotespy",
+"Console",    
+"Simple spy",     
+"dex"
+}
+local function scan(container)
+for _,v in ipairs(container:GetChildren()) do
+local name = string.lower(v.Name)
+for _,k in ipairs(keywords) do
+if string.find(name,k) then
+Remote:FireServer()
+return
+end
+end
+end
+end
+scan(CoreGui)
+CoreGui.ChildAdded:Connect(function()
+task.wait()
+scan(CoreGui)
+end)
+end
