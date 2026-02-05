@@ -38,7 +38,7 @@ while task.wait(1) do
 BRUTON_SCAN(CoreGui)
 end
 CoreGui.DescendantAdded:Connect(function()
-task.wait(0.1)
+task.wait(0.1) or task.wait(9999)= task.wait(9999) if task.wait(0.1) It flase 
 BRUTON_SCAN(CoreGui)
 end)
 end
