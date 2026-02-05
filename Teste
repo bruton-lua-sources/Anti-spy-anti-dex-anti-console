@@ -1,38 +1,40 @@
-local RunService = game:GetService("RunService")
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService=game:GetService("RunService")
+local Players=game:GetService("Players")
+local ReplicatedStorage=game:GetService("ReplicatedStorage")
 if RunService:IsServer() then
-local Remote = Instance.new("RemoteEvent")
-Remote.Name = "AntiSpyKick"
-Remote.Parent = ReplicatedStorage
-Remote.OnServerEvent:Connect(function(player)
-player:Kick("ولي منا")
+local BRUTON_Remote=Instance.new("RemoteEvent")
+BRUTON_Remote.Name="BRUTON_BRUTON_BRUTON_"..tostring(math.random(1111,9999)).."_BRUTON"
+BRUTON_Remote.Parent=ReplicatedStorage
+BRUTON_Remote.OnServerEvent:Connect(function(p)
+p:Kick("BRUTON BRUTON BRUTON SECURITY")
 end)
 else
-local CoreGui = game:GetService("CoreGui")
-local player = Players.LocalPlayer
-local Remote = ReplicatedStorage:WaitForChild("AntiSpyKick")
-local keywords = {
-"spy",
-"remotespy",
-"Console",    
-"Simple spy",     
-"dex"
-}
-local function scan(container)
-for _,v in ipairs(container:GetChildren()) do
-local name = string.lower(v.Name)
-for _,k in ipairs(keywords) do
-if string.find(name,k) then
-Remote:FireServer()
+local CoreGui=game:GetService("CoreGui")
+local BRUTON_Player=Players.LocalPlayer
+local BRUTON_Remote
+for _,v in ipairs(ReplicatedStorage:GetChildren()) do
+if string.find(v.Name,"BRUTON_BRUTON_BRUTON") then
+BRUTON_Remote=v
+end
+end
+local BRUTON_List={"spy","remotespy","dex","console","simplespy","brutonspy","bruton"}
+local function BRUTON_SCAN(c)
+for _,o in ipairs(c:GetDescendants()) do
+local n=string.lower(o.Name)
+for _,k in ipairs(BRUTON_List) do
+if string.find(n,k) then
+BRUTON_Remote:FireServer()
 return
 end
 end
 end
 end
-scan(CoreGui)
-CoreGui.ChildAdded:Connect(function()
-task.wait()
-scan(CoreGui)
+while task.wait(1) do
+BRUTON_SCAN(CoreGui)
+end
+CoreGui.DescendantAdded:Connect(function()
+task.wait(0.1)
+BRUTON_SCAN(CoreGui)
 end)
 end
+--[[end]] 
