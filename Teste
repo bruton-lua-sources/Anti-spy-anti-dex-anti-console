@@ -6,8 +6,9 @@ if RunService:IsServer() then
 local BRUTON_Remote=Instance.new("RemoteEvent")
 BRUTON_Remote.Name="BRUTON_BRUTON_BRUTON_"..tostring(math.random(1111,9999)).."_BRUTON"
 --[[
-if string.find(v.Name,"BRUTON_BRUTON_BRUTON") then
---]]
+if deltaor BRUTON_Remote or roblox anti clip or map anti clip or delta
+]]
+
 BRUTON_Remote.Parent=ReplicatedStorage
 BRUTON_Remote.OnServerEvent:Connect(function(p)
 p:Kick("BRUTON BRUTON BRUTON SECURITY")
